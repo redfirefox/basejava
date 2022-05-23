@@ -33,34 +33,24 @@ public class ArrayStorage {
 
     void delete(String uuid) {
         for (int i = 0; i < size; i++) {
-            if (storage[i].uuid.equals(uuid))
-                storage[i] = null;
-        }
-
-        Resume[] temp = new Resume[size];
-        int j = 0;
-        for (int i = 0; i < size; i++) {
-            if (storage[i] != null) {
-                temp[j] = storage[i];
-                j++;
+            if (storage[i].uuid.equals(uuid)) {
+                for (int j = i; j < size ; j++) {
+                    storage[j] = storage[j + 1];
+                }
+                size--;
+                return;
             }
         }
-
-        for (int i = 0; i < size; i++) {
-            storage[i] = temp[i];
-        }
-
-        size--;
     }
 
     /**
      * @return array, contains only Resumes in storage (without null)
      */
     Resume[] getAll() {
-        Resume[] r = new Resume[size];
+        Resume[] resumes = new Resume[size];
         for (int i = 0; i < size; i++) {
-            r[i] = storage[i];
+            resumes[i] = storage[i];
         }
-        return r;
+        return resumes;
     }
 }
