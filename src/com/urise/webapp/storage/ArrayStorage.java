@@ -8,10 +8,10 @@ import java.util.Arrays;
  * Array based storage for Resumes
  */
 public class ArrayStorage {
-    protected static int MAX_SIZE = 10000;
-    private static String RESUME_NOT_EXIST = "Resume %s not found%n";
+    protected static final int MAX_SIZE = 10000;
+    private static final String RESUME_NOT_EXIST = "Resume %s not found%n";
     private int size = 0;
-    private Resume[] storage = new Resume[MAX_SIZE];
+    private final Resume[] storage = new Resume[MAX_SIZE];
 
     public int size() {
         return size;
